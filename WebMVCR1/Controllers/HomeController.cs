@@ -44,4 +44,18 @@ public class HomeController : Controller
     }
 
     
+    [HttpGet]
+    public IActionResult CreatePerson()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult CreatePerson(Person person)
+    {
+        return Content($"Имя: {person.Name}, Возраст: {person.Age}");
+    }
+
+
+    
 }
