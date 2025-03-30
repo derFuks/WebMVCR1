@@ -12,17 +12,19 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+    // public string Index()
+    // {
+    //     int hour = DateTime.Now.Hour;
+    //     string greeting = hour < 12 ? "Доброе утро" : "Добрый день";
+    //     return greeting;
+    // }
 
-    public IActionResult Index()
+    public string Index(string name, int num = 1)
     {
-        return View();
-    }
-    public string Index()
-    {
-        int hour = DateTime.Now.Hour;
-        string greeting = hour < 12 ? "Доброе утро" : "Добрый день";
+        string greeting = $"Здравствуйте, {name}. Это ваш запрос №{num}";
         return greeting;
     }
+
 
 
     public IActionResult Privacy()
@@ -35,5 +37,11 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    public IActionResult PersonInfo()
+    {
+        var person = new Person { Name = "Гонсалес", Age = 83 };
+        return View(person);
+    }
+
     
 }
